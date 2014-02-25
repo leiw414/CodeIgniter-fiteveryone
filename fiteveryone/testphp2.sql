@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cart`
 --
 
+
 CREATE TABLE IF NOT EXISTS `cart` (
   `customer_id` varchar(255) NOT NULL,
   `id` varchar(100) NOT NULL,

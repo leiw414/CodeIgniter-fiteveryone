@@ -1,0 +1,188 @@
+@charset utf-8;
+
+<style type=text/css>
+.container
+{
+	margin:0 auto;
+	max-width:1000px;
+	
+}
+
+.container > hr
+{
+	margin:60px 0;
+}
+
+.jumbotron
+{
+	margin:30px 0;
+	padding:0 20px;
+	text-align:center;
+}
+
+.jumbotron h1
+{
+	font-size:23px;
+	line-height:1;
+}
+
+.jumbotron p
+{
+	font-size:18px;
+}
+
+.marketing
+{
+	margin:60px 0;
+}
+
+.marketing p + h4
+{
+	margin-top:28px;
+}
+
+.links
+{
+	color:#c2c2c2;
+	float:right;
+	font-family:URWGroteskTW01-Regular;
+	font-size:12px;
+	height:14px;
+	line-height:14px;
+	margin-top:10px;
+	text-align:left;
+	text-transform:uppercase;
+}
+
+.navbar .navbar-inner
+{
+	padding:0;
+}
+
+.navbar .nav
+{
+	margin:0;
+	width:100%;
+}
+
+.navbar .nav li
+{
+	float:left;
+	width:16.57%;
+}
+
+.navbar .nav li a
+{
+	border-left:1px solid rgba(0,0,0,.1);
+	font-size:13px;
+	font-weight:700;
+	text-align:center;
+}
+
+.introduction
+{
+	font-size:15px;
+	min-height:80px;
+}
+
+.introduction li
+{
+	list-style:none;
+	margin: 2px 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.btnright
+{
+	float:right!important;
+}
+
+.quote
+{
+	color:#999;
+	float:right;
+	font-size:14px;
+	font-weight:700;
+}
+
+#footernav
+{
+	color:#636363;
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size:13px;
+	margin:50px 0px 10px 0;
+	text-align:center;
+	width:100%;
+}
+
+#footernav a
+{
+	color:#636363;
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size:12px;
+	margin:0 8px 0 8px;
+	
+}
+
+#footernav a:hover
+{
+	color:#959595;
+	text-decoration:none;
+}
+
+#footernav .footer
+{
+	display:block;
+	float:left;
+	padding-right:4%;
+}
+
+#footernav .footerlast
+{
+	display:block;
+	float:left;
+	font-size:15px;
+	padding-left:5px;
+}
+
+.modal-header
+{
+	padding:0 15px;
+}
+
+.modal-header h3
+{
+	font-size:20px;
+}
+
+.title1
+{
+	font-size:17px;
+	font-weight:700;
+	line-height:400%;
+}
+
+ul.unstyled li
+{
+	line-height:250%;
+	text-indent:.3cm;
+}
+
+.error
+{
+	color:red;
+	font-size:15px;
+}
+
+.red
+{
+	color:#d14;
+}
+
+.GBfooter
+{
+	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	font-size: 16px;
+	padding-bottom:20px;
+	text-align:center;
+}

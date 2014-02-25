@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2014 at 06:41 PM
+-- Generation Time: Feb 25, 2014 at 07:59 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `testphp2`
+-- Database: `fiteveryone`
 --
 
 -- --------------------------------------------------------

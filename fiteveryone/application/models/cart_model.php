@@ -2,12 +2,14 @@
 
 class Cart_model extends CI_Model {
 	
+	// insert into cart
 	function insert($data) 
 	{
 		$this->db->insert('cart', $data);
 		return;
 	}
 	
+	// get info from cart table by user id
 	function get_records()
 	{
 		$user_id = $this->session->userdata('id');
@@ -18,6 +20,7 @@ class Cart_model extends CI_Model {
 		return $q->result();
 	}
 	
+	//delete item from cart table by user id
 	function delete()
 	{
 		$user_id = $this->session->userdata('id');
@@ -25,14 +28,5 @@ class Cart_model extends CI_Model {
 		$this->db->delete('cart');
 	}
 	
-	function delete_row()
-	{
-		
-		$this->db->where( array(
-			'customer_id' =>  $this->session->userdata('id'),
-			'option' =>$this->input->post('option')
-			));
-						
-		$this->db->delete('cart');
-	}
+
 }

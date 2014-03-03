@@ -255,7 +255,7 @@
 					<label class="control-label">Card Expiry Date</label>
 					<div class="controls">
 						<div class="row-fluid">
-							<div class="span9">
+							<div class="span3">
 								<select class="input-block-level" name="month" id="m_card">
 									<option value="<?php echo $row->month; ?>" ><?php echo $row->month; ?></option>
 									<option value="" > </option>
@@ -308,7 +308,7 @@
 				<div class="control-group">
 						<label class="control-label">Credit Card Type</label>
 						<div class="controls">
-							<select id="state" name="state" >
+							<select id="state" name="card_type" >
 							<option value="<?php echo $row->card_type; ?>"><?php echo $row->card_type; ?></option>
 							<option value=""></option>
 							<option value="Visa">Visa</option>

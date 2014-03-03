@@ -7,28 +7,28 @@ class Email extends CI_Controller
          parent::__construct();
          // Your own constructor code
     }
+	
+	// Direct to the contactus page
     function index()
  	{
     	$data['main_content'] = 'contactus';
 		$this->load->view('includes/template',$data);
     }
 	
+	// send eamil with ajax
 	function submit() {
-		
-		
-		
+		// save the input info in array
 		$data = array(
 				'name' => $this->input->post('name'),
 				'email' => $this->input->post('email'),
 				'subject' => $this->input->post('subject'),
 				'message' => $this->input->post('message')
 				
-			);
-		
-		
-		
+		);
+		// Save the info in database
 		$this->contact_model->add_record($data);
 		
+		// At the same time, send a email to the person in charge 
 		$config = Array(
 				'protocol' => 'smtp',
 				'smtp_host' => 'ssl://smtp.gmail.com',
@@ -49,17 +49,19 @@ class Email extends CI_Controller
 		$this->email->send();
 		
 		$data['main_content'] = 'contact_submitted';
-		
 		if ($this->input->post('ajax')) {
+		
 			$this->load->view($data['main_content']);			
-		} else {
+		} 
+		else {
 			$this->load->view('includes/template', $data);
 		}
 	}
 	
+	// send email with PHP
 	function sendemail()
 	{
-		
+		// check if the user input is valid.
 		$this->load->library('form_validation');
 		
 		//field name, error message, validation rules
@@ -90,12 +92,14 @@ class Email extends CI_Controller
             $this->email->subject($_POST["subject"]);
             $this->email->message($_POST["email"] . " " . $_POST["message"]);
 			
-            
+            // if the email send successful, then direct to tkemail page.
             if($this->email->send())
             {
             	$data['main_content'] = 'tkemail';
 				$this->load->view('includes/template',$data);
             }
+			
+			//Otherwise, get error message.
             else
             {
             	show_error($this->email->print_debugger());

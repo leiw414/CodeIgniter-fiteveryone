@@ -1,6 +1,7 @@
 <?php
 class Products extends CI_Controller{
 	
+	// Get all info of all products.
 	function index(){
 		
 		$this->load->model('products_model');
@@ -10,6 +11,8 @@ class Products extends CI_Controller{
 		
 		$this->load->view('includes/template',$data);
 	}
+	
+	// Get info of all tea that is black tea.
 	function black_tea(){
 		
 		$this->load->model('products_model');
@@ -20,6 +23,7 @@ class Products extends CI_Controller{
 		$this->load->view('includes/template',$data);
 	}
 	
+	// Get info of all tea that is green tea.
 	function green_tea(){
 		
 		$this->load->model('products_model');
@@ -30,6 +34,7 @@ class Products extends CI_Controller{
 		$this->load->view('includes/template',$data);
 	}
 	
+	// Get info of all tea that is bagged tea.
 	function tea_bag(){
 		
 		$this->load->model('products_model');
@@ -40,12 +45,13 @@ class Products extends CI_Controller{
 		$this->load->view('includes/template',$data);
 	}
 	
-	function pro_test(){
+	/*function pro_test(){
 		$data['main_content'] = 'pro_test';
 		$this->load->view('includes/template',$data);
 	
-	}
+	}*/
 	
+	// Get product info according to product id.
 	function product($product_id){
 	
 		$this->load->model('products_model');

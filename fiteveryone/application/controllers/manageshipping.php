@@ -3,7 +3,7 @@ class Manageshipping extends CI_Controller {
 
 	function index(){
 		
-		
+		// get all info of all card and display them on the manageshipping page
 			$data = array();
 			
 			if($query = $this->shipping_model->get_records())
@@ -20,6 +20,7 @@ class Manageshipping extends CI_Controller {
 	
 		$shipping_id = $this->input-> post('shipping_id');
 		
+		// if the user wanted to edit
 		if($this->input->post('sbm') == "edit") { 
 			
 			if($query = $this->shipping_model->get_record($shipping_id))
@@ -32,9 +33,10 @@ class Manageshipping extends CI_Controller {
 			
 		} 
 		
+		// if the user wanted to delete
 		else {
 			$this->shipping_model->delete_row($shipping_id);
-			// do something with delete
+			
 			$this->index();
 		}
 	
@@ -42,6 +44,7 @@ class Manageshipping extends CI_Controller {
 	
 	function update_record($shipping_id){
 		
+		// check if the user input is valid
 		$this->load->library('form_validation');
 		
 		// field name, error message, validation rules
@@ -53,7 +56,7 @@ class Manageshipping extends CI_Controller {
 		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required');
 		
 		
-		
+		//if not valid..
 		if($this->form_validation->run() == FALSE)
 		{
 			if($query = $this->shipping_model->get_record($shipping_id))
@@ -61,10 +64,12 @@ class Manageshipping extends CI_Controller {
 				$data['records'] = $query;
 			}
 			
+			// return editshipping page with error message
 			$data['main_content'] = 'editshipping';
 			$this->load->view('includes/template',$data);
 		}
 		
+		// update the shipping info
 		else{
 		
 			$data = array(

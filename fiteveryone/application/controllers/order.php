@@ -1,16 +1,13 @@
 <?php 
 class Order extends CI_Controller {
-	
-	function index(){
-	
-	
-	}
+
 	
 	function add(){
 	
-
+			// if user has logged in, then..
 				if( $this->session->userdata('login_state') ) 
 				{
+					//insert items into cart
 					$product = $this->Products_model->get($this->input->post('product_id'));
 			
 					foreach ($product as $row){
@@ -27,11 +24,14 @@ class Order extends CI_Controller {
 						$this->cart_model->insert($data);
 					}
 					
-					
+					//redirect to cart controller
 					redirect('cart');
 				} 
+				
+				// if not logged in..
 				else
 				{
+					// insert item into cart.
 					$product = $this->Products_model->get($this->input->post('product_id'));
 			
 						foreach ($product as $row){	
@@ -46,7 +46,8 @@ class Order extends CI_Controller {
 
 							$this->cart->insert($data);
 						}
-						
+					
+					//direct to shopping cart page
 					$data['main_content'] = 'shoppingcart';
 					$this->load->view('includes/template',$data);
 				}
@@ -56,32 +57,34 @@ class Order extends CI_Controller {
 	
 
 	
-	function inquire(){
+	/*function inquire(){
 	
+		//check if the user input is valid
 		$this->load->library('form_validation');
 		
 		// field name, error message, validation rules
 		$this->form_validation->set_rules('gene_seq', 'Gene Sequence', 'trim|required|min_length[5]');
 		$this->form_validation->set_rules('prod_name', 'Product Name', 'trim|required');
 		
+		//if not valid..
 		if($this->form_validation->run() == FALSE){
 			
 			$this->index();
 		}
 		
-		
+		// if valid..
 		else{
 		
-		if($query = $this->profile_model->get_records()){
+			if($query = $this->profile_model->get_records()){
 				
-			foreach ($query as $row){
+				foreach ($query as $row){
+							
+						$fname = $row->fname;
+						$lname = $row->lname;
+						$opt_email = $row->opt_email;
 						
-					$fname = $row->fname;
-					$lname = $row->lname;
-					$opt_email = $row->opt_email;
-					
 				}
-			
+				
 			}
 			
 		if($q = $this->Products_model->get_pname($_POST["prod_name"])){
@@ -132,7 +135,7 @@ class Order extends CI_Controller {
         }
 		}
 	}
-	
+	*/
 	function show() {
 		
 		$cart = $this->cart->contents();
@@ -141,6 +144,7 @@ class Order extends CI_Controller {
 		print_r($cart);
 	}
 	
+	// remove item from cart
 	function remove($rowid) {
 		
 		$this->cart->update(array(
@@ -150,10 +154,13 @@ class Order extends CI_Controller {
 		
 		$this->cart_model->delete();
 		
+		// if logged in
 		if( $this->session->userdata('login_state') ) 
 		{
 			redirect('cart');
 		} 
+		
+		// not logged in
 		else
 		{
 			$data['main_content'] = 'shoppingcart';
@@ -162,8 +169,7 @@ class Order extends CI_Controller {
 		
 	}
 	
-
-	
+	//destroy cart
 	function destroy() {
 		
 		$this->cart->destroy();

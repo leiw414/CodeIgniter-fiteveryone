@@ -2,6 +2,7 @@
 
 class Checkshipping_model extends CI_Model {
 	
+	// get all shipping records from shipping_address table by user id
 	function get_records(){
 		$user_id = $this->session->userdata('id');
 		$this->db->from('shipping_address');
@@ -11,6 +12,7 @@ class Checkshipping_model extends CI_Model {
 		return $q->result();
 	}
 	
+	// get how many shipping records saved in the shipping_address table by user id
 	function get_nums(){
 		$user_id = $this->session->userdata('id');
 		$this->db->from('shipping_address');
@@ -25,6 +27,7 @@ class Checkshipping_model extends CI_Model {
 		}
 	}
 	
+	// get specific shipping info by user id and shipping id
 	function get_record(){
 		$user_id = $this->session->userdata('id');
 		$this->db->from('shipping_address');

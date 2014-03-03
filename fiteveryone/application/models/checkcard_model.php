@@ -2,6 +2,7 @@
 
 class Checkcard_model extends CI_Model {
 	
+	// get all payment info from payment table by user id
 	function get_records()
 	{
 		$user_id = $this->session->userdata('id');
@@ -13,6 +14,7 @@ class Checkcard_model extends CI_Model {
 		return $q->result();
 	}
 	
+	/*
 	function get_precords()
 	{
 		$user_id = $this->session->userdata('id');
@@ -22,7 +24,7 @@ class Checkcard_model extends CI_Model {
 		$q = $this->db->get();
 		
 		return $q->result();
-	}
+	}*/
 	
 	function get_all_records()
 	{
@@ -34,6 +36,7 @@ class Checkcard_model extends CI_Model {
 		return $q->result();
 	}
 	
+	// get how many payment records in the payment table
 	function get_nums()
 	{
 		$user_id = $this->session->userdata('id');
@@ -50,7 +53,7 @@ class Checkcard_model extends CI_Model {
 		}
 	}
 	
-	function get_pnums()
+	/*function get_pnums()
 	{
 		$user_id = $this->session->userdata('id');
 		$this->db->from('payment');
@@ -64,8 +67,9 @@ class Checkcard_model extends CI_Model {
 		else{
 			return false;
 		}
-	}
+	}*/
 	
+	//get specific card info from payment table
 	function get_record()
 	{
 		$user_id = $this->session->userdata('id');

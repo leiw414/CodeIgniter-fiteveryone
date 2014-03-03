@@ -1,9 +1,9 @@
 <?php 
 class Managepayment extends CI_Controller {
 
-	function index(){//check num cards
+	function index(){
 		
-
+		// get all info of all card and display them on the managepayment page
 			$data = array();
 			
 			if($query = $this->checkcard_model->get_all_records())
@@ -23,6 +23,7 @@ class Managepayment extends CI_Controller {
 		$card_id = $this->input-> post('card_id');
 		$card_type = $this->input-> post('card_type');
 		
+		// if the user wanted to edit
 		if($this->input->post('sbm') == "edit") { 
 			
 			if($card_type == "PO%20Number"){
@@ -45,9 +46,10 @@ class Managepayment extends CI_Controller {
 			$this->load->view('includes/template',$data);// do something with edit
 		} 
 		
+		// if the user wanted to delete
 		else {
 			$this->creditcard_model->delete_row($card_id);
-			// do something with delete
+			
 			$this->index();
 		}
 	
@@ -55,7 +57,7 @@ class Managepayment extends CI_Controller {
 	
 	function update_record($card_id){
 		
-		
+		// check if the user input is valid
 		$this->load->library('form_validation');
 		
 		// field name, error message, validation rules
@@ -69,7 +71,7 @@ class Managepayment extends CI_Controller {
 		$this->form_validation->set_rules('phone', 'Phone Number', 'trim|required');
 		
 		
-		
+		//if not valid..
 		if($this->form_validation->run() == FALSE)
 		{
 			if($query = $this->creditcard_model->get_record($card_id))
@@ -77,11 +79,12 @@ class Managepayment extends CI_Controller {
 				$data['records'] = $query;
 			}
 			
+			// return editcreditcard page with error message
 			$data['main_content'] = 'editcreditcard';
 			$this->load->view('includes/template',$data);
 		}
 		
-		
+		// update the card info
 		else{
 			
 			$data = array(
@@ -108,7 +111,7 @@ class Managepayment extends CI_Controller {
 		}
 	}
 	
-	function update_po_record($card_id){
+	/*function update_po_record($card_id){
 		
 		
 		$this->load->library('form_validation');
@@ -155,5 +158,5 @@ class Managepayment extends CI_Controller {
 			
 			$this->index();
 		}
-	}
+	}*/
 }

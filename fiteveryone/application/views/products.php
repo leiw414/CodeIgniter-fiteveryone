@@ -4,8 +4,8 @@
       <!-- Begin content-->
       <section id="content" class="clearfix">
           
-          <div id="collection" class="row">
-            <div class="span12">
+          <div id="collection" class="row" >
+            <div class="span12" >
               <div class="breadcrumb clearfix">
 				<span ><a href="<?php echo base_url();?>index.php?/main "  ><span >Home</span></a></span> 
 				<span class="arrow-space">&#62;</span>

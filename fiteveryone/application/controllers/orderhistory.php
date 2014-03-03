@@ -2,23 +2,10 @@
 
 class Orderhistory extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
+	
 	function index()
-	{
+	{	
+		// If the user has logged in, then display all history orders.
 		if( $this->session->userdata('login_state')) 
 		{
             $data = array();
@@ -28,10 +15,12 @@ class Orderhistory extends CI_Controller {
 				$data['records'] = $query;
 			}
 			
+			// Display the order history on the orderhistory page.
 			$data['main_content'] = 'orderhistory';
 			$this->load->view('includes/template',$data);
 			
         } 
+		// Otherwise, return to the login page.
 		else
 		{
 			redirect('login');
@@ -39,15 +28,15 @@ class Orderhistory extends CI_Controller {
 	}
 	function Viewmore($order_no)
 	{
+		// Get shipping and payment info corresponding to the order number.
 		if($query = $this->Ordhistory_model->get_sp_record($order_no)){
 				$data['sp'] = $query;
 		}
+		// Get item info corresponding to the order number.
 		if($q = $this->Ordhistory_model->get_item_records($order_no)){
 				$data['item'] = $q;
 		}	
+		// Display the info on the invoice page.
 		$this->load->view('invoice',$data);
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

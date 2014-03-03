@@ -1,6 +1,7 @@
 <?php
 class Products_model extends CI_Model {
 	
+	// Get all info of all products.
 	function get_all() {
 		
 		$results = $this->db->get('products')->result();
@@ -8,6 +9,7 @@ class Products_model extends CI_Model {
 		
 	}
 	
+	// Get info of all tea that is black tea.
 	function get_black() {
 		
 		$this->db->from('products');
@@ -17,6 +19,7 @@ class Products_model extends CI_Model {
 		return $results->result();
 	}
 	
+	// Get info of all tea that is green tea.
 	function get_green() {
 		
 		$this->db->from('products');
@@ -26,6 +29,7 @@ class Products_model extends CI_Model {
 		return $results->result();
 	}
 	
+	// Get info of all tea that is bagged tea.
 	function get_bag() {
 		
 		$this->db->from('products');
@@ -35,6 +39,7 @@ class Products_model extends CI_Model {
 		return $results->result();
 	}
 	
+	// Get product info according to product id.
 	function get_product($product_id) {
 		
 		$this->db->from('products');
@@ -44,6 +49,7 @@ class Products_model extends CI_Model {
 		return $results->result();
 	}
 	
+	// Get product_name,price,option_name according to product id.
 	function get($id){
 	
 		$this->db->select('product_name,price,option_name');

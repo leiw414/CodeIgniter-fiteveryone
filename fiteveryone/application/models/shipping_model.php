@@ -2,6 +2,7 @@
 
 class Shipping_model extends CI_Model {
 	
+	// get all shipping address info by user id
 	function get_records()
 	{
 		$user_id = $this->session->userdata('id');
@@ -12,6 +13,7 @@ class Shipping_model extends CI_Model {
 		return $q->result();
 	}
 	
+	// get a shipping address info by shipping_id 
 	function get_record($id)
 	{
 		$this->db->from('shipping_address');
@@ -21,6 +23,7 @@ class Shipping_model extends CI_Model {
 		return $q->result();
 	}
 	
+	//delete a shipping address info by shipping_id 
 	function delete_row($id)
 	{
 		$this->db->where( array(
@@ -30,6 +33,7 @@ class Shipping_model extends CI_Model {
 		$this->db->delete('shipping_address');
 	}
 	
+	// update a shipping address info by shipping_id 
 	function update_record($id, $data) 
 	{
 		$this->db->where( array(
@@ -38,22 +42,14 @@ class Shipping_model extends CI_Model {
 		$this->db->update('shipping_address', $data);
 	}
 	
-	function get_temp_record()
-	{
-		$user_id = $this->session->userdata('id');
-		$this->db->from('temp_shipping_address');
-		$this->db->where( array('customer_id'=>$user_id));
-		$q = $this->db->get();
-		
-		return $q->result();
-	}
-		
+	// add shipping address info into shipping_address table	
 	function add_record($data) 
 	{
 		$this->db->insert('shipping_address', $data);
 		return;
 	}
 	
+	// check if the shipping address info exists
 	function shipping_exists($name,$address1,$address2,$city,$state,$zip,$country,$phone)
 	{
 		$user_id = $this->session->userdata('id');

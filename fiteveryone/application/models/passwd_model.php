@@ -1,11 +1,8 @@
 <?php
 
 class Passwd_model extends CI_Model {
-	
-	function index()
-	{
-	}
-	
+
+	//check if the password that user input match his saved password in the database or not  
 	function check_passwd()
 	{
 		$user_id = $this->session->userdata('id');
@@ -20,6 +17,7 @@ class Passwd_model extends CI_Model {
 		}
 	}
 	
+	//update password by user id
 	function update_record($data) 
 	{
 		$user_id = $this->session->userdata('id');
@@ -27,6 +25,8 @@ class Passwd_model extends CI_Model {
 		$this->db->update('user', $data);
 	}
 	
+	
+	// get password by user id
 	function get_passwd()
 	{
 		$user_id = $this->input->post('email');

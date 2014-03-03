@@ -4,8 +4,10 @@ class Cart extends CI_Controller {
 
 	function index()
 	{
+		// If user has logged in
 		if( $this->session->userdata('login_state') ) 
 		{
+			// Get the items in the cart_model, the insert into cart.
             if($query = $this->cart_model->get_records(1))
 			{
 			
@@ -24,8 +26,9 @@ class Cart extends CI_Controller {
 			
 			}
 			
+			//Then, all items are in the cart now
 			if($cart = $this->cart->contents()){
-			
+					// Then, delete the items in the cart table
 					$this->cart_model->delete();
 					
 					foreach ($cart as $item){
@@ -38,16 +41,17 @@ class Cart extends CI_Controller {
 							'option' =>$item['option'],
 							'price' => $item['price'] 
 						);
-						
+						//Then, save all items that in the shopping cart in the cart table
 						$this->cart_model->insert($data);
 					}
 					
 			}
-		
+			//direct to cart page
 			$data['main_content'] = 'cart';
 			$this->load->view('includes/template',$data);
 
         } 
+		// If user has not logged in, the direct to shopping cart page.
 		else
 		{
 			$data['main_content'] = 'shoppingcart';

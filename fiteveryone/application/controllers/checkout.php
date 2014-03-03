@@ -8,9 +8,13 @@ class Checkout extends CI_Controller {
 		// delete cart table destroy ->cart
 		$this->cart_model->delete();
 		$this->cart->destroy();
+		
+		// direct to tkorder page
 		$data['main_content'] = 'tkorder';
 		$this->load->view('includes/template',$data);
 	}
+	
+	// save order into order_history table
 	function save_order_history(){
 		
 		$data = array(
@@ -44,8 +48,10 @@ class Checkout extends CI_Controller {
 			
 		);
 		
+		//add record into order_hisrtoy table
 		$this->Ordhistory_model->add_record($data);
 		
+		// get the orderhistroy id.
 		if($query = $this->Ordhistory_model->get_order_no($this->session->userdata('order_id'))){
 			
 			foreach ($query as $q){
@@ -54,7 +60,8 @@ class Checkout extends CI_Controller {
 			}
 			
 		}
-			
+		
+		//add all items into the order_items table
 		if($cart = $this->cart->contents()){
 
 			foreach ($cart as $item){

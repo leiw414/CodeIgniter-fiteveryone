@@ -2,6 +2,7 @@
 
 class Membership_model extends CI_model {
 
+	//check if the username and password match 
 	function validate()
 	{
 		
@@ -24,6 +25,7 @@ class Membership_model extends CI_model {
 		}
 	}
 	
+	// check if activated
 	function check_activation()
 	{
 		
@@ -38,6 +40,7 @@ class Membership_model extends CI_model {
 		}
 	}
 	
+	//check if email exists
 	function email_exists()
 	{
 		$this->db->where('customer_id',$this->input->post('email'));
@@ -50,6 +53,7 @@ class Membership_model extends CI_model {
 		}
 	}
 	
+	// create a member by adding a row in the user table
 	function create_member()
 	{
 		
@@ -67,6 +71,7 @@ class Membership_model extends CI_model {
 		return $insert;
 	}
 
+	//check the email activation status
 	function check_account_activation($md5_email)
 	{
 		$this->db->from('user');
@@ -79,6 +84,7 @@ class Membership_model extends CI_model {
 		}
 	}
 	
+	//get the user id by code($md5_email)
 	function get_active_account($md5_email){
 	
 		$this->db->from('user');
@@ -95,6 +101,7 @@ class Membership_model extends CI_model {
 		
 	}
 	
+	//update the user table
 	function update_record($data) 
 	{
 		$user_id = $this->session->userdata('id');

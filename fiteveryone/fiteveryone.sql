@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2014 at 08:02 PM
+-- Generation Time: Mar 03, 2014 at 04:32 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 
 INSERT INTO `cart` (`customer_id`, `id`, `name`, `qty`, `price`, `option`) VALUES
 ('245570207@qq.com', '1386667002', 'Assam', 1, '20.000', '2012'),
-('245570207@qq.com', '1386667472', 'Darjeeling', 1, '40.000', '2012');
+('245570207@qq.com', '1386667472', 'Darjeeling', 1, '40.000', '2012'),
+('leiw414@gmail.com', '1393819024', 'Darjeeling', 1, '40.000', '2012');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,9 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('319a8ba2e08055c56ec38577ff60340b', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.48 Safari/537.36', 1393353593, 'a:27:{s:9:"user_data";s:0:"";s:11:"login_state";b:1;s:2:"id";s:17:"leiw414@gmail.com";s:13:"shipping_name";s:8:"Lei Wang";s:17:"shipping_address1";s:27:"425 Hillsborough ST APT 10F";s:17:"shipping_address2";s:3:"xin";s:13:"shipping_city";s:11:"Chapel Hill";s:14:"shipping_state";s:14:"North Carolina";s:12:"shipping_zip";s:5:"27514";s:16:"shipping_country";s:2:"US";s:14:"shipping_phone";s:10:"9193608513";s:12:"payment_name";s:8:"Lei Wang";s:15:"payment_card_no";s:16:"1231343242414144";s:17:"payment_last_four";s:4:"4144";s:13:"payment_month";s:2:"01";s:12:"payment_year";s:4:"2016";s:11:"payment_cvv";s:3:"111";s:17:"payment_card_type";s:10:"MasterCard";s:16:"payment_address1";s:23:"425 Hillsborough Street";s:16:"payment_address2";s:0:"";s:12:"payment_city";s:11:"Chapel Hill";s:13:"payment_state";s:14:"North Carolina";s:11:"payment_zip";s:5:"27514";s:15:"payment_country";s:2:"US";s:13:"payment_phone";s:10:"9193608513";s:8:"order_id";i:1393353663;s:8:"order_no";s:2:"12";}');
+('16f1476824ff52a53c1dac0a017bd66a', '127.0.0.1', 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)', 1393814283, 'a:2:{s:9:"user_data";s:0:"";s:13:"cart_contents";a:3:{s:32:"f2edb871f9dd48b0d21b8333cbc26f20";a:7:{s:5:"rowid";s:32:"f2edb871f9dd48b0d21b8333cbc26f20";s:2:"id";i:1393814312;s:4:"name";s:5:"Assam";s:3:"qty";s:1:"1";s:6:"option";s:4:"2012";s:5:"price";s:5:"20.00";s:8:"subtotal";d:20;}s:11:"total_items";i:1;s:10:"cart_total";d:20;}}'),
+('6a6c1c3b648b7f42aa6e71b4773c72c9', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36', 1393820799, 'a:27:{s:9:"user_data";s:0:"";s:2:"id";s:22:"zuoyou482634@gmail.com";s:11:"login_state";b:1;s:13:"shipping_name";s:3:"Lei";s:17:"shipping_address1";s:23:"425 Hillsborough Street";s:17:"shipping_address2";s:0:"";s:13:"shipping_city";s:11:"Chapel Hill";s:14:"shipping_state";s:14:"North Carolina";s:12:"shipping_zip";s:5:"27514";s:16:"shipping_country";s:2:"US";s:14:"shipping_phone";s:10:"9193608513";s:12:"payment_name";s:8:"Lei Wang";s:15:"payment_card_no";s:16:"1111111111111111";s:17:"payment_last_four";s:4:"1111";s:13:"payment_month";s:2:"01";s:12:"payment_year";s:4:"2013";s:11:"payment_cvv";s:3:"111";s:17:"payment_card_type";s:4:"Visa";s:16:"payment_address1";s:27:"425 Hillsborough ST APT 10F";s:16:"payment_address2";s:3:"xin";s:12:"payment_city";s:11:"Chapel Hill";s:13:"payment_state";s:14:"North Carolina";s:11:"payment_zip";s:5:"27514";s:15:"payment_country";s:2:"US";s:13:"payment_phone";s:10:"9193608513";s:8:"order_id";i:1393820457;s:8:"order_no";s:2:"13";}'),
+('b226c0f8b868376b49aa2b646c628c10', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Safari/537.36', 1393815335, 'a:1:{s:2:"id";s:16:"245570207@qq.com";}');
 
 -- --------------------------------------------------------
 
@@ -121,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `order_history` (
   `p_country` varchar(100) NOT NULL,
   `p_phone` varchar(20) NOT NULL,
   PRIMARY KEY (`order_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `order_history`
@@ -131,7 +134,6 @@ INSERT INTO `order_history` (`order_no`, `customer_id`, `order_id`, `order_date`
 (8, 'leiw414@gmail.com', '1386643750', '12/10/2013', '23.00', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513', 'Lei Wang', '1111111111111111', '1111', '02', '2019', '111', 'Visa', '425 Hillsborough Street', '', '27514', 'Chapel Hill', 'North Carolina', 'US', '9193608513'),
 (9, 'leiw414@gmail.com', '1386643877', '12/10/2013', '63.00', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513', 'Lei Wang', '1111111111111111', '1111', '02', '2019', '111', 'Visa', '425 Hillsborough Street', '', '27514', 'Chapel Hill', 'North Carolina', 'US', '9193608513'),
 (10, 'leiw414@gmail.com', '1386644561', '12/10/2013', '20.00', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513', 'Lei Wang', '3333333333333333', '3333', '01', '2013', '111', 'Visa', '425 Hillsborough Street', '', '27514', 'Chapel Hill', 'North Carolina', 'US', '9193608513'),
-(11, '245570207@qq.com', '1386662558', '12/10/2013', '40.00', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'NC', '27514', 'US', '9193608513', 'Lei Wang', '1111111111111111', '1111', '01', '2013', '111', 'Visa', '425 Hillsborough Street', '', '27514', 'Chapel Hill', 'North Carolina', 'US', '9193608513'),
 (12, 'leiw414@gmail.com', '1393353663', '02/25/2014', '20.00', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513', 'Lei Wang', '1231343242414144', '4144', '01', '2016', '111', 'MasterCard', '425 Hillsborough Street', '', '27514', 'Chapel Hill', 'North Carolina', 'US', '9193608513');
 
 -- --------------------------------------------------------
@@ -149,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   `unit_price` decimal(13,2) NOT NULL,
   `subtotal` decimal(13,2) NOT NULL,
   PRIMARY KEY (`order_item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `order_items`
@@ -188,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `phone` varchar(20) NOT NULL,
   `method` int(10) NOT NULL,
   PRIMARY KEY (`card_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `payment`
@@ -247,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `shipping_address` (
   `country` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   PRIMARY KEY (`shipping_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `shipping_address`
@@ -255,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `shipping_address` (
 
 INSERT INTO `shipping_address` (`shipping_id`, `customer_id`, `name`, `address1`, `address2`, `city`, `state`, `zip`, `country`, `phone`) VALUES
 (8, '245570207@qq.com', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'NC', '27514', 'US', '9193608513'),
-(9, 'leiw414@gmail.com', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513');
+(9, 'leiw414@gmail.com', 'Lei Wang', '425 Hillsborough ST APT 10F', '', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513');
 
 -- --------------------------------------------------------
 
@@ -280,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`customer_id`, `passwd`, `fname`, `lname`, `tel1`, `registration_date`, `last_login`, `status`) VALUES
-('leiw414@gmail.com', 'nihaoma', 'lei', 'wang', '', '12/24/2013', '02/25/2014', 'activated');
+('leiw414@gmail.com', 'nihaoma', 'Lei', 'Wang', '', '03/03/2014', '03/03/2014', 'activated');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

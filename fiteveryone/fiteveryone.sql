@@ -256,8 +256,8 @@ CREATE TABLE IF NOT EXISTS `shipping_address` (
 --
 
 INSERT INTO `shipping_address` (`shipping_id`, `customer_id`, `name`, `address1`, `address2`, `city`, `state`, `zip`, `country`, `phone`) VALUES
-(8, '245570207@qq.com', 'Lei Wang', '425 Hillsborough ST APT 10F', 'xin', 'Chapel Hill', 'NC', '27514', 'US', '9193608513'),
-(9, 'leiw414@gmail.com', 'Lei Wang', '425 Hillsborough ST APT 10F', '', 'Chapel Hill', 'North Carolina', '27514', 'US', '9193608513');
+(8, '245570207@qq.com', 'Lei Wang', '425 HillsF', 'xin', 'Chapel Hill', 'NC', '27514', 'US', '6783325213'),
+(9, 'leiw414@gmail.com', 'Lei Wang', '425 Hill', '', 'Chapel Hill', 'North Carolina', '27514', 'US', '6783325213');
 
 -- --------------------------------------------------------
 
